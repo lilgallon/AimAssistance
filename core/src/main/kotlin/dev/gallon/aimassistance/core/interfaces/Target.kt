@@ -26,7 +26,6 @@ interface Player : Entity {
     fun rayTrace(reach: Double, source: Position, direction: Rotation): Block?
 }
 
-
 interface Block : Target {
     fun getFacePosition(): Position
 }

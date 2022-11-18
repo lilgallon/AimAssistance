@@ -1,8 +1,8 @@
 package dev.gallon.aimassistance.fabric.adapters
 
-import dev.gallon.aimassistance.core.interfaces.Entity
 import dev.gallon.aimassistance.core.domain.Position
 import dev.gallon.aimassistance.core.domain.Rotation
+import dev.gallon.aimassistance.core.interfaces.Entity
 import net.minecraft.entity.Entity as FabricEntity
 
 open class FabricEntityAdapter(

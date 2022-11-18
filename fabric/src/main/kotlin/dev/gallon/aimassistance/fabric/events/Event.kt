@@ -9,6 +9,6 @@ class TickEvent : Event
 class MouseMoveEvent(
     val x: Double,
     val y: Double
-): Event
+) : Event
 
 class LeftMouseClickEvent : Event

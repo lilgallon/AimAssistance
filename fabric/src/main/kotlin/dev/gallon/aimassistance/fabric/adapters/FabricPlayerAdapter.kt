@@ -39,7 +39,6 @@ class FabricPlayerAdapter(
             ?.map(::FabricEntityAdapter)
             ?: emptyList()
 
-
     override fun rayTrace(reach: Double, source: Position, direction: Rotation): Block? {
         val f2 = MathHelper.cos((- direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())
         val f3 = MathHelper.sin((- direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())

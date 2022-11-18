@@ -5,7 +5,7 @@ import dev.gallon.aimassistance.fabric.events.LeftMouseClickEvent
 import dev.gallon.aimassistance.fabric.events.MouseMoveEvent
 import dev.gallon.aimassistance.fabric.events.SingleEventBus
 
-class FabricMouseAdapter: Mouse {
+class FabricMouseAdapter : Mouse {
 
     private var moved = false
     private var leftClicked = false

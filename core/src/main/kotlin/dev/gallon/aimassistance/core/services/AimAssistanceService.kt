@@ -7,7 +7,6 @@ import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.sqrt
 
-
 class AimAssistanceService(
     private val minecraft: Minecraft,
     private val mouse: Mouse,
@@ -34,9 +33,10 @@ class AimAssistanceService(
                 .let { entities -> computeClosestEntity(minecraft.getPlayer()!!, entities) }
                 ?.also { entity -> target = entity }
 
-            TargetType.BLOCK -> minecraft
-                .getPointedBlock(maxRange = config.blockRange)
-                ?.also { block -> target = block }
+            TargetType.BLOCK ->
+                minecraft
+                    .getPointedBlock(maxRange = config.blockRange)
+                    ?.also { block -> target = block }
 
             TargetType.NONE -> {}
         }
@@ -140,9 +140,9 @@ class AimAssistanceService(
                     if (target is Block) {
                         val next = nextBlock.getPosition()
                         val curr = target!!.getPosition()
-                        next.x.toInt() == curr.x.toInt()
-                                && next.y.toInt() == curr.y.toInt()
-                                && next.z.toInt() == curr.z.toInt()
+                        next.x.toInt() == curr.x.toInt() &&
+                            next.y.toInt() == curr.y.toInt() &&
+                            next.z.toInt() == curr.z.toInt()
                     } else {
                         false
                     }
@@ -196,7 +196,7 @@ class AimAssistanceService(
                 val pitchToAdd = wrapDegrees(rotation.pitch - source.getRotations().pitch)
                 val yawToAdd = wrapDegrees(rotation.yaw - source.getRotations().yaw)
 
-                sqrt(pitchToAdd*pitchToAdd + yawToAdd*yawToAdd)
+                sqrt(pitchToAdd * pitchToAdd + yawToAdd * yawToAdd)
             }
 
     /**

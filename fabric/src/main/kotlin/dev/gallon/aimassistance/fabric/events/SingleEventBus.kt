@@ -11,7 +11,7 @@ object SingleEventBus {
         callbacks[T::class] = callback as (event: Event) -> Unit
     }
 
-    fun <T: Event> send(event: T) {
+    fun <T : Event> send(event: T) {
         callbacks[event::class]?.invoke(event)
     }
 }

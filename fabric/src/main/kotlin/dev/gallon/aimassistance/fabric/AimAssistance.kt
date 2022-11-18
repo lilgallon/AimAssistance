@@ -13,7 +13,6 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer
 import net.fabricmc.api.ModInitializer
 import net.minecraft.client.MinecraftClient
 
-
 class AimAssistance : ModInitializer {
 
     private var aimAssistance: AimAssistanceService? = null

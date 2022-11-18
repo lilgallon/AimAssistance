@@ -11,8 +11,8 @@ class Timer {
     }
 
     fun start() {
-       startMs = getSystemMilliseconds()
-       stopped = false
+        startMs = getSystemMilliseconds()
+        stopped = false
     }
 
     fun stop() {
@@ -25,4 +25,3 @@ class Timer {
 
     private fun getSystemMilliseconds() = System.nanoTime() / 1000000L
 }
-
