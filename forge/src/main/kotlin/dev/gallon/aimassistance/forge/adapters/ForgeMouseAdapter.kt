@@ -1,9 +1,9 @@
 package dev.gallon.aimassistance.forge.adapters
 
 import dev.gallon.aimassistance.core.interfaces.Mouse
-import dev.gallon.aimassistance.fabric.events.LeftMouseClickEvent
-import dev.gallon.aimassistance.fabric.events.MouseMoveEvent
-import dev.gallon.aimassistance.fabric.events.SingleEventBus
+import dev.gallon.aimassistance.forge.events.LeftMouseClickEvent
+import dev.gallon.aimassistance.forge.events.MouseMoveEvent
+import dev.gallon.aimassistance.forge.events.SingleEventBus
 
 class ForgeMouseAdapter : Mouse {
     private var moved = false

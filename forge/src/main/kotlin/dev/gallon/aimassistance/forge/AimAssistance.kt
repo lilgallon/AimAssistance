@@ -2,9 +2,9 @@ package dev.gallon.aimassistance.forge
 
 import dev.gallon.aimassistance.core.domain.AimAssistanceConfig
 import dev.gallon.aimassistance.core.services.AimAssistanceService
-import dev.gallon.aimassistance.fabric.events.RenderEvent
-import dev.gallon.aimassistance.fabric.events.SingleEventBus
-import dev.gallon.aimassistance.fabric.events.TickEvent
+import dev.gallon.aimassistance.forge.events.RenderEvent
+import dev.gallon.aimassistance.forge.events.SingleEventBus
+import dev.gallon.aimassistance.forge.events.TickEvent
 import dev.gallon.aimassistance.forge.adapters.ForgeMinecraftAdapter
 import dev.gallon.aimassistance.forge.adapters.ForgeMouseAdapter
 import net.minecraft.client.Minecraft
