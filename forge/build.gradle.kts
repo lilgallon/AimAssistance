@@ -18,12 +18,18 @@ apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/sit
 group = "$modGroup.forge"
 version = modVersion
 
+val inJar = configurations.create("inJar")
+configurations.implementation.extendsFrom(inJar)
+
 repositories {
     mavenCentral()
+    maven("https://maven.shedaniel.me/") // cloth config
 }
 
 dependencies {
     minecraft("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
+    api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion"))
+    inJar(project(":core"))
 }
 
 val Project.minecraft: net.minecraftforge.gradle.common.util.MinecraftExtension
@@ -70,6 +76,11 @@ tasks {
     }
 
     withType<Jar> {
+        from(
+            inJar.map {
+                if (it.isDirectory) it else zipTree(it)
+            }
+        )
         archiveBaseName.set("$modArchive-forge")
         manifest {
             attributes(
