@@ -13,7 +13,7 @@
     "sources": "https://github.com/lilgallon/AimAssistance"
   },
 
-  "license": "CC0-1.0",
+  "license": "GNU-GPL-3.0",
   "icon": "assets/aimassistance/icon.png",
 
   "environment": "*",

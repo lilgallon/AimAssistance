@@ -1,16 +1,16 @@
 plugins {
-    kotlin("jvm")
-    id("fabric-loom")
+    id("fabric-loom") version loomVersion
+    kotlin("jvm") version kotlinVersion
     `maven-publish`
     java
 }
 
 base {
-    archivesBaseName = property("archives_base_name")!!.toString()
+    archivesBaseName = "$modArchive-fabric"
 }
 
-group = property("maven_group")!!.toString() + ".fabric"
-version = property("mod_version")!!
+group = "$modGroup.fabric"
+version = modVersion
 
 repositories {
     maven("https://maven.shedaniel.me/") // cloth config
@@ -23,15 +23,15 @@ configurations.implementation.extendsFrom(inJar)
 dependencies {
     inJar(project(":core"))
 
-    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
+    minecraft("com.mojang:minecraft:$minecraftVersion")
+    mappings("net.fabricmc:yarn:$yarnMappings:v2")
+    modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
 
-    modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${property("cloth_config_version")}") {
+    modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
+    modApi("me.shedaniel.cloth:cloth-config-fabric:$clothConfigVersion") {
         exclude("net.fabricmc.fabric-api")
     }
-    modApi("com.terraformersmc:modmenu:${property("mod_menu_version")}")
+    modApi("com.terraformersmc:modmenu:$modMenuVersion")
 }
 
 tasks {
@@ -53,7 +53,7 @@ tasks {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = jvmTarget
     }
 }
 

@@ -1,9 +1,9 @@
 plugins {
-    kotlin("jvm")
+    kotlin("jvm") version kotlinVersion
 }
 
-group = property("maven_group")!!.toString() + ".core"
-version = property("mod_version")!!
+group = "$modGroup.core"
+version = modVersion
 
 repositories {
     mavenCentral()
@@ -14,6 +14,6 @@ dependencies {
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = jvmTarget
     }
 }

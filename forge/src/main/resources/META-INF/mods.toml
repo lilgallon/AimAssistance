@@ -1,0 +1,28 @@
+modLoader = "kotlinforforge"
+
+loaderVersion = "[3,)"
+license = "GNU-GPL-3.0"
+issueTrackerURL = "https://github.com/lilgallon/AimAssistance/issues"
+
+[[mods]]
+modId = "aimassistance"
+version = "1.0.0"
+displayName = "AimAssistance"
+authors = "lilgallon"
+description = '''
+Helps you aiming when mining and attacking mobs. Perfect mod for computer newbies. Works great with controllers. Doesn't work on players (no PvP advantage)
+'''
+updateJSONURL="https://raw.githubusercontent.com/lilgallon/AimAssistance/main/updates.json"
+logoFile="icon.png"
+[[dependencies.aimassistance]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.aimassistance]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2]"
+ordering = "NONE"
+side = "CLIENT"

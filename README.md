@@ -10,9 +10,35 @@ Ideal to introduce Minecraft to your parents!
 ## Showcase
 
 > TODO: Add Gif: mining assistance
+> 
 > TODO: Add Gif: attack assistance
+> 
 > TODO: Add Gif: configuration
 
 ## Installation
 
 > TODO: State requirements and how to configure the mod
+
+## For developers
+
+This project is a little challenge. I don't really like java, and the fact that on each new Minecraft release I need
+to update each port of my mods (fabric / forge for example). 
+
+The goals of this project are:
+- No Java
+- Code base agnostic of minecraft modding API
+- Continuous integration: make sure that the project builds on the main branch
+- Continuous delivery: automatically release & upload mod to curseforge (or any other platform) on each pushed tag on the main branch
+
+> I know that having a code base that is agnostic of minecraft modding API is a bit complicated at the start,
+> but once the mod logic is done, it will be easier and faster to maintain the mod. In my case
+> on each minecraft release, I just have to:
+> - Bump the versions
+> - Update Forge module with the new mappings
+> - Update Fabric module with the new mappings
+> - Add a tag on the branch
+> - Push
+> 
+> 1.19 to 1.20 will probably take less than 5 minutes to update & release on curseforge.
+> 
+> **But** it works well because my mod is lightweight. It will probably add some overhead for big minecraft mods.
