@@ -10,7 +10,7 @@ buildscript {
 
 plugins {
     java
-    kotlin("jvm") version kotlinVersion
+    kotlin("jvm")
     id("net.minecraftforge.gradle") version forgeGradlePlugin
 }
 apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-$kotlinForForge.gradle")

@@ -1,4 +1,5 @@
 rootProject.name = "AimAssistance"
+
 pluginManagement {
     repositories {
         mavenCentral()
