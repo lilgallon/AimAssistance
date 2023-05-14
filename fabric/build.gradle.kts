@@ -6,7 +6,7 @@ plugins {
 }
 
 base {
-    archivesBaseName = "$modArchive-fabric"
+    archivesName.set("$modArchive-fabric")
 }
 
 group = "$modGroup.fabric"
@@ -17,8 +17,8 @@ repositories {
     maven("https://maven.terraformersmc.com/releases/") // mod menu
 }
 
-val inJar = configurations.create("inJar")
-configurations.implementation.extendsFrom(inJar)
+val inJar: Configuration = configurations.create("inJar")
+configurations.implementation.get().extendsFrom(inJar)
 
 dependencies {
     inJar(project(":core"))
@@ -26,11 +26,8 @@ dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings("net.fabricmc:yarn:$yarnMappings:v2")
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
-
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
-    modApi("me.shedaniel.cloth:cloth-config-fabric:$clothConfigVersion") {
-        exclude("net.fabricmc.fabric-api")
-    }
+    modApi("me.shedaniel.cloth:cloth-config-fabric:$clothConfigVersion")
     modApi("com.terraformersmc:modmenu:$modMenuVersion")
 }
 
@@ -48,7 +45,7 @@ tasks {
         from(
             inJar.map {
                 if (it.isDirectory) it else zipTree(it)
-            }
+            },
         )
     }
 

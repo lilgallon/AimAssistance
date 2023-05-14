@@ -1,9 +1,9 @@
 // Common
-const val kotlinVersion = "1.7.10"
+const val kotlinVersion = "1.8.21"
 const val jvmTarget = "17"
 
 // Minecraft
-const val minecraftVersion = "1.19.2"
+const val minecraftVersion = "1.19.4"
 
 // Mod
 const val modId = "aimassistance"
@@ -11,22 +11,25 @@ const val modGroup = "dev.gallon.$modId"
 const val modVersion = "1.0.0-MC$minecraftVersion"
 const val modArchive = "$modId-$modVersion"
 
-// Forge
-const val kotlinForForge = "3.7.1"
-const val kotlinGradlePlugin = "1.7.0"
-const val forgeVersion = "43.1.7"
-const val forgeGradlePlugin = "5.1.+"
+// Forge - also update mods.toml
+const val kotlinForForge = "4.2.0" // https://github.com/thedarkcolour/KotlinForForge
+const val kotlinGradlePlugin = kotlinVersion
+const val forgeVersion = "45.0.59" // https://files.minecraftforge.net/net/minecraftforge/forge
+const val forgeGradlePlugin = "5.1.+" // https://files.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/
 
-// Fabric
-const val loomVersion = "1.0-SNAPSHOT"
-const val yarnMappings = "$minecraftVersion+build.28"
-const val loaderVersion = "0.14.10"
+// Fabric - also update fabric.mod.json
+// 1.2+ requires gradle 8, forge is not yet compatible
+const val loomVersion = "1.0-SNAPSHOT" // https://github.com/FabricMC/fabric-example-mod
+const val yarnMappings = "$minecraftVersion+build.2" // https://fabricmc.net/develop/
+const val loaderVersion = "0.14.19" // https://fabricmc.net/develop/
 
 // External dependencies
-// Common
-const val clothConfigVersion = "8.2.88"
-// Fabric
-const val fabricKotlinVersion = "1.8.3+kotlin.$kotlinVersion"
-const val modMenuVersion = "4.1.0"
-// Forge
 
+// Common
+const val clothConfigVersion = "10.0.96" // https://linkie.shedaniel.dev/dependencies
+
+// Fabric - also update fabric.mod.json
+const val fabricKotlinVersion = "1.9.4+kotlin.$kotlinVersion" // https://github.com/FabricMC/fabric-language-kotlin
+const val modMenuVersion = "4.1.0"
+
+// Forge

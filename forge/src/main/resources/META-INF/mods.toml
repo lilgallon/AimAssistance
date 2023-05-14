@@ -1,6 +1,6 @@
 modLoader = "kotlinforforge"
 
-loaderVersion = "[3,)"
+loaderVersion = "[4,)"
 license = "GNU-GPL-3.0"
 issueTrackerURL = "https://github.com/lilgallon/AimAssistance/issues"
 
@@ -17,12 +17,12 @@ logoFile="icon.png"
 [[dependencies.aimassistance]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[45,)"
 ordering = "NONE"
 side = "CLIENT"
 [[dependencies.aimassistance]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2]"
+versionRange = "[1.19.4]"
 ordering = "NONE"
 side = "CLIENT"

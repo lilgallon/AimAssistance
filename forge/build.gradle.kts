@@ -13,23 +13,27 @@ plugins {
     kotlin("jvm")
     id("net.minecraftforge.gradle") version forgeGradlePlugin
 }
-apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-$kotlinForForge.gradle")
 
 group = "$modGroup.forge"
 version = modVersion
 
-val inJar = configurations.create("inJar")
-configurations.implementation.extendsFrom(inJar)
-
 repositories {
-    mavenCentral()
-    maven("https://maven.shedaniel.me/") // cloth config
+    maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
+    maven("https://maven.shedaniel.me/") // Cloth config/
+}
+
+// TODO: fix this
+// https://docs.minecraftforge.net/en/fg-5.x/dependencies/jarinjar/
+jarJar.enable()
+jarJar.dependencies {
+    include(dependency(project(":core")))
 }
 
 dependencies {
     minecraft("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
+    implementation("thedarkcolour:kotlinforforge:$kotlinForForge")
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion"))
-    inJar(project(":core"))
+    implementation(project(":core"))
 }
 
 val Project.minecraft: net.minecraftforge.gradle.common.util.MinecraftExtension
@@ -76,19 +80,14 @@ tasks {
     }
 
     withType<Jar> {
-        from(
-            inJar.map {
-                if (it.isDirectory) it else zipTree(it)
-            }
-        )
         archiveBaseName.set("$modArchive-forge")
         manifest {
             attributes(
                 mapOf(
                     "Implementation-Title" to project.name,
                     "Implementation-Version" to project.version,
-                    "Implementation-Timestamp" to SimpleDateFormat("yyyy-MM-dd").format(Date())
-                )
+                    "Implementation-Timestamp" to SimpleDateFormat("yyyy-MM-dd").format(Date()),
+                ),
             )
         }
         finalizedBy("reobfJar")

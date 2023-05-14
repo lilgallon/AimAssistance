@@ -2,11 +2,11 @@ package dev.gallon.aimassistance.forge
 
 import dev.gallon.aimassistance.core.domain.AimAssistanceConfig
 import dev.gallon.aimassistance.core.services.AimAssistanceService
+import dev.gallon.aimassistance.forge.adapters.ForgeMinecraftAdapter
+import dev.gallon.aimassistance.forge.adapters.ForgeMouseAdapter
 import dev.gallon.aimassistance.forge.events.RenderEvent
 import dev.gallon.aimassistance.forge.events.SingleEventBus
 import dev.gallon.aimassistance.forge.events.TickEvent
-import dev.gallon.aimassistance.forge.adapters.ForgeMinecraftAdapter
-import dev.gallon.aimassistance.forge.adapters.ForgeMouseAdapter
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.Mod
 
@@ -34,7 +34,7 @@ class AimAssistance {
             aimAssistance = AimAssistanceService(
                 minecraft = ForgeMinecraftAdapter(Minecraft.getInstance()),
                 mouse = ForgeMouseAdapter(),
-                config = config
+                config = config,
             )
         } else if (aimAssistance != null && Minecraft.getInstance().player == null) {
             aimAssistance = null
