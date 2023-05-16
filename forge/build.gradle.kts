@@ -84,7 +84,7 @@ tasks {
                 },
             )
         }
-
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         archiveBaseName.set(forgeModArchive)
         manifest {
             attributes(
