@@ -12,7 +12,7 @@ import net.minecraft.world.level.ClipContext
 import net.minecraft.world.phys.AABB
 
 class ForgePlayerAdapter(
-    private val player: LocalPlayer
+    private val player: LocalPlayer,
 ) : ForgeEntityAdapter(player), Player {
 
     override fun setRotation(rotations: Rotation) {
@@ -33,16 +33,16 @@ class ForgePlayerAdapter(
                     player.z - range,
                     player.x + range,
                     player.y + range,
-                    player.z + range
-                )
+                    player.z + range,
+                ),
             ) { true }
             .map(::ForgeEntityAdapter)
 
     override fun rayTrace(reach: Double, source: Position, direction: Rotation): Block? {
-        val f2 = Mth.cos((- direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())
-        val f3 = Mth.sin((- direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())
-        val f4 = - Mth.cos((- direction.pitch * (Math.PI / 180.0)).toFloat())
-        val f5 = Mth.sin((- direction.pitch * (Math.PI / 180.0)).toFloat())
+        val f2 = Mth.cos((-direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())
+        val f3 = Mth.sin((-direction.yaw * (Math.PI / 180.0) - Math.PI).toFloat())
+        val f4 = -Mth.cos((-direction.pitch * (Math.PI / 180.0)).toFloat())
+        val f5 = Mth.sin((-direction.pitch * (Math.PI / 180.0)).toFloat())
         val f6 = f3 * f4
         val f7 = f2 * f4
         val vector = source.toVec3d().add(f6 * reach, f5 * reach, f7 * reach)
@@ -55,10 +55,9 @@ class ForgePlayerAdapter(
                     vector,
                     ClipContext.Block.OUTLINE,
                     ClipContext.Fluid.NONE,
-                    player
-                )
+                    player,
+                ),
             )
             .let(::ForgeBlockAdapter)
     }
-
 }
