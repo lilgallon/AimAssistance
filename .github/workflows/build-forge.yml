@@ -1,4 +1,4 @@
-name: build
+name: build forge
 on: [pull_request, push]
 
 jobs:
@@ -17,17 +17,17 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
+          build-root-directory: forge
           arguments: ktlintCheck
       - name: build
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
+          build-root-directory: forge
           arguments: build
       - name: capture build artifacts
         if: ${{ runner.os == 'Linux' }}
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
-          path: |
-            forge/build/libs/
-            fabric/build/libs/
+          path: forge/build/libs/
