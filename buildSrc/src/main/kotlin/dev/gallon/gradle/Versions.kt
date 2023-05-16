@@ -33,6 +33,6 @@ const val clothConfigVersion = "10.0.96" // https://linkie.shedaniel.dev/depende
 
 // Fabric - also update fabric.mod.json
 const val fabricKotlinVersion = "1.9.4+kotlin.$kotlinVersion" // https://github.com/FabricMC/fabric-language-kotlin
-const val modMenuVersion = "4.1.0"
+const val modMenuVersion = "6.2.2" // https://github.com/TerraformersMC/ModMenu/releases
 
 // Forge
