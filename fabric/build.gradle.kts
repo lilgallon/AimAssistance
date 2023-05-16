@@ -6,11 +6,11 @@ plugins {
 }
 
 base {
-    archivesName.set("$modArchive-fabric")
+    archivesName.set(fabricModArchive)
 }
 
 group = "$modGroup.fabric"
-version = modVersion
+version = fabricModVersion
 
 repositories {
     maven("https://maven.shedaniel.me/") // cloth config

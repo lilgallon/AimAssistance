@@ -1,3 +1,4 @@
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -15,25 +16,21 @@ plugins {
 }
 
 group = "$modGroup.forge"
-version = modVersion
+version = forgeModVersion
 
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge/") // Kotlin for Forge
     maven("https://maven.shedaniel.me/") // Cloth config/
 }
 
-// TODO: fix this
-// https://docs.minecraftforge.net/en/fg-5.x/dependencies/jarinjar/
-jarJar.enable()
-jarJar.dependencies {
-    include(dependency(project(":core")))
-}
+val inJar: Configuration = configurations.create("inJar")
+configurations.implementation.get().extendsFrom(inJar)
 
 dependencies {
     minecraft("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
     implementation("thedarkcolour:kotlinforforge:$kotlinForForge")
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion"))
-    implementation(project(":core"))
+    inJar(project(":core"))
 }
 
 val Project.minecraft: net.minecraftforge.gradle.common.util.MinecraftExtension
@@ -46,7 +43,7 @@ minecraft.let {
             workingDirectory(project.file("run"))
             property("forge.logging.console.level", "debug")
             mods {
-                this.create(modVersion) {
+                create(forgeModVersion) {
                     source(sourceSets.main.get())
                 }
             }
@@ -80,7 +77,15 @@ tasks {
     }
 
     withType<Jar> {
-        archiveBaseName.set("$modArchive-forge")
+        doFirst {
+            from(
+                inJar.map {
+                    if (it.isDirectory) it else zipTree(it)
+                },
+            )
+        }
+
+        archiveBaseName.set(forgeModArchive)
         manifest {
             attributes(
                 mapOf(

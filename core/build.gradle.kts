@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "$modGroup.core"
-version = modVersion
+version = coreVersion
 
 repositories {
     mavenCentral()

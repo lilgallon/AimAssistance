@@ -8,20 +8,23 @@ const val minecraftVersion = "1.19.4"
 // Mod
 const val modId = "aimassistance"
 const val modGroup = "dev.gallon.$modId"
-const val modVersion = "1.0.0-MC$minecraftVersion"
-const val modArchive = "$modId-$modVersion"
+const val coreVersion = "1.0.0"
 
 // Forge - also update mods.toml
 const val kotlinForForge = "4.2.0" // https://github.com/thedarkcolour/KotlinForForge
 const val kotlinGradlePlugin = kotlinVersion
 const val forgeVersion = "45.0.59" // https://files.minecraftforge.net/net/minecraftforge/forge
 const val forgeGradlePlugin = "5.1.+" // https://files.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/
+const val forgeModVersion = "1.0.0-MC$minecraftVersion"
+const val forgeModArchive = "$modId-$forgeModVersion-forge"
 
 // Fabric - also update fabric.mod.json
 // 1.2+ requires gradle 8, forge is not yet compatible
 const val loomVersion = "1.0-SNAPSHOT" // https://github.com/FabricMC/fabric-example-mod
 const val yarnMappings = "$minecraftVersion+build.2" // https://fabricmc.net/develop/
 const val loaderVersion = "0.14.19" // https://fabricmc.net/develop/
+const val fabricModVersion = "1.0.0-MC$minecraftVersion"
+const val fabricModArchive = "$modId-$fabricModVersion-fabric"
 
 // External dependencies
 
