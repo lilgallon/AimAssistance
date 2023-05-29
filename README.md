@@ -1,5 +1,7 @@
 # AimAssistance
 
+**project moved to https://github.com/lilmods/aim-assistance**
+
 [![build fabric](https://github.com/lilgallon/AimAssistance/actions/workflows/build-fabric.yml/badge.svg?branch=main)](https://github.com/lilgallon/AimAssistance/actions/workflows/build-fabric.yml)
 [![build forge](https://github.com/lilgallon/AimAssistance/actions/workflows/build-forge.yml/badge.svg?branch=main)](https://github.com/lilgallon/AimAssistance/actions/workflows/build-forge.yml)
 [![release fabric](https://github.com/lilgallon/AimAssistance/actions/workflows/release-fabric.yml/badge.svg?branch=main)](https://github.com/lilgallon/AimAssistance/actions/workflows/release-fabric.yml)
